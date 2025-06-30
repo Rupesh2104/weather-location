@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather Check</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #login-container,
+        #weather-app .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 300px;
+            text-align: center;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: green;
+        }
+
+        .weather-side {
+            margin-bottom: 20px;
+        }
+
+        .weather-city {
+            font-size: 24px;
+            color: #444;
+        }
+
+        .weather-temp {
+            font-size: 36px;
+            margin: 10px 0;
+        }
+
+        .weather-desc,
+        .weather-wind {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .location-container {
+            margin-top: 10px;
+        }
+
+        #location-input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body onload="updateDate()">
+    <div id="login-container">
+        <h2>Get Weather - Login</h2>
+        <input type="text" id="username" placeholder="Enter Username" />
+        <input type="password" id="password" placeholder="Enter Password" />
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div id="weather-app" style="display: none;">
+        <div class="container">
+            <div class="weather-side">
+                <div class="date-container">
+                    <h2 class="date-dayname">Loading...</h2>
+                </div>
+                <div class="weather-container">
+                    <h1 class="weather-city">--</h1>
+                    <h1 class="weather-temp">--°C</h1>
+                    <h3 class="weather-desc">--</h3>
+                    <h3 class="weather-wind">Wind: -- km/h</h3>
+                </div>
+            </div>
+
+            <div class="location-container">
+                <input type="text" id="location-input" placeholder="Enter Location" />
+                <button onclick="updateWeather()">Get Weather</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
